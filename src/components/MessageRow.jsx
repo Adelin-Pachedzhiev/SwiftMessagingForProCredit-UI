@@ -1,4 +1,5 @@
-export default function MessageView({ message, children }) {
+
+export default function MessageRow({ message, children }) {
   return (
     <tr className="border-b hover:bg-gray-50" key={message.id}>
       <td className="p-2 border border-gray-300">{message.id}</td>

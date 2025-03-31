@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import MessageList from "./components/MessageList";
+import MessagesView from "./components/MessagesView";
 import MessageForm from "./components/MessageForm";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
         Create Message
       </button>
       <h1 className="text-3xl font-bold text-gray-800">SWIFT Message Manager</h1>
-      <MessageList onEdit={setSelected} />
+      <MessagesView onEdit={setSelected} />
     </main>
   );
 }

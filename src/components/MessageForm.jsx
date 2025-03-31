@@ -1,6 +1,6 @@
 import { useState } from "react";
 import swiftService from "../services/swiftService";
-import MessageView from "./MessageView";
+import MessageTable from "./MessageTable";
 
 export default function MessageForm({ onComplete, message }) {
   const [file, setFile] = useState(null);
@@ -31,7 +31,7 @@ export default function MessageForm({ onComplete, message }) {
   };
 
   return (
-    <div className="bg-white p-6 rounded shadow space-y-4">
+    <div className="max-w-screen-xl mx-auto bg-white p-6 rounded shadow space-y-4">
       <form onSubmit={handleSubmit}>
         <input type="file" onChange={onChangedFile} className="block mb-4" />
         <button
@@ -48,14 +48,13 @@ export default function MessageForm({ onComplete, message }) {
           Cancel
         </button>
       </form>
-      <div>
-        {parsedMessage && (
-          <div>
-            <h3 className="text-lg font-semibold mt-6 mb-2">Parsed Message</h3>
-            <MessageView message={parsedMessage} />
-          </div>
-        )}
-      </div>
+
+      {parsedMessage && (
+        <div>
+          <h3 className="text-lg font-semibold mt-6 mb-2">Parsed Message</h3>
+          <MessageTable messages={[parsedMessage]} />
+        </div>
+      )}
     </div>
   );
 }
